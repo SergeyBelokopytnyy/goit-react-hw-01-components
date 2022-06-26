@@ -14,8 +14,13 @@
 //     </div>
 //   );
 // };
-import user from './user.json';
-import Profile from './components/Profile';
+import user from './data/user.json';
+import data from './data/data.json';
+import friends from './data/friends.json';
+
+import Profile from './components/profile/Profile';
+import Statistics from './components/statistics/Statistics';
+import Friends from 'components/friends/FriendList';
 
 export default function App() {
   return (
@@ -25,10 +30,11 @@ export default function App() {
         tag={user.tag}
         location={user.location}
         src={user.avatar}
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes}
+        stats={user.stats}
       />
+
+      <Statistics title="Upload stats" stats={data} />
+      <Friends friends={friends} />
     </div>
   );
 }
